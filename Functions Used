@@ -1,0 +1,5 @@
+void entry();
+void showentry();
+void searchentry();
+void delentry();
+void modifyentry();
