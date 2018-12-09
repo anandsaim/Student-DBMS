@@ -1,0 +1,187 @@
+ void entry()
+  {
+  int roll,flag=0;
+  ifstream if1;
+  if1.open("main",ios::binary);
+  cout<<"\n Please enter the Roll Number to be entered:";
+  cin>>roll;
+  while(if1.read((char*)&s,sizeof(s)))
+  {
+  int xyz=s.retroll();
+  if(roll==xyz)
+  {flag=1;
+  break;
+  }
+}                                              //while closes
+if(flag==1)
+{
+cout<<"\n Sorry the Entry already exist!!";
+if1.close();
+}
+if(flag==0)
+{
+ofstream of1;
+of1.open("main",ios::binary|ios::app);
+s.getdata(roll);
+of1.write((char*)&s,sizeof(s));
+of1.close();
+}                                        //if closes
+  }
+
+
+void showentry()
+{
+  int choice,t,flag=0;
+  ifstream if2;
+  if2.open("main",ios::binary);
+  cout<<"\n The appropriate options are:";
+  cout<<"\n 1.All The Enteries";
+  cout<<"\n 2.Specific Entry";
+  cout<<"\n Please enter your choice:";
+  cin>>choice;
+  if(choice==1)
+  {
+  while(if2.read((char*)&s,sizeof(s)))
+  s.putdata();
+  goto tag;
+  }
+if(choice==2)
+{
+cout<<"\n Please enter the Roll Number to be Displayed:";
+cin>>t;
+while(if2.read((char*)&s,sizeof(s)))
+{
+int o=s.retroll();
+if(t==o)
+{
+flag=1;
+break
+}                                 //inner if close
+	}                           // while close
+ }			               //if closes
+ if(flag==0
+ cout<<"\n Sorry Entry Not found!!";
+ if(flag==1)
+ {cout<<"\n Entry Found!!";
+ s.putdata();
+ }
+ tag:
+ if2.close();
+
+  }
+
+ void searchentry()
+{
+ int b,flag=0,search;
+ifstream if3;
+if3.open("main",ios::binary);
+cout<<"\n Please enter the Roll Number you want to search:";
+cin>>b;
+while(if3.read((char*)&s,sizeof(s)))
+{
+search=s.retroll();
+if(b==search)
+{
+flag=1;
+break;
+ } 						//if closes
+} 					// while loop closes
+if(flag==0)
+cout<<"\n Sorry no match found!!";
+if(flag==1)
+{
+cout<<"\n Entry found";
+char c;
+cout<<"\n Do you wish to display the entry?(Y/N)";
+cin>>c;
+if(c=='y'||c=='Y')
+s.putdata();
+	}
+}
+
+
+
+void delentry()
+{
+ int e,f,flag=0;
+ ifstream if4;
+ ofstream of2;
+ cout<<"\n Please enter the roll no to be deleted:";
+ cin>>e;
+ if4.open("main",ios::binary);
+ of2.open("secondary",ios::binary);
+ while(if4.read((char*)&s,sizeof(s)))
+ {
+ f=s.retroll();
+ if(e!=f)
+ of2.write((char*)&s,sizeof(s));
+ else
+ flag=1;
+ }
+ if4.close();
+ of2.close();
+ if(flag==0)
+ {
+	cout<<"\n Sorry no matching record found in the file!";
+ }
+ if(flag==1)
+ {
+cout<<"\n Matching Record Found!!";
+ char q,n;
+ /*cout<<"\n Do you wish to display the record before Removing it?";
+ cin>>n;
+ if(n=='Y'||n=='y')
+ s.putdata();8\*/
+ cout<<"\n Do you want to delete the record?(Y/N)";
+ cin>>q;
+ cout<<"\n RECORD DELETED !!!";
+ if(q=='y'||q=='Y')
+ {
+remove ("main");
+ rename ("secondary","main");
+	}               	                   // inner if closed
+}                                           // if closed
+}
+
+ void modifyentry()
+{
+int g,nrc=0,flag=0;
+ifstream if5;
+ofstream of3;
+if5.open("main",ios::binary);
+cout<<"\n Please enter the roll number to be modified:";
+cin>>g;
+if5.seekg(0,ios::beg);
+while(if5.read((char*)&s,sizeof(s)))
+{
+nrc++;
+int b=s.retroll();
+if(g==b)
+{
+flag=1;
+break;
+}
+}
+if(flag==0)
+{
+cout<<"\n Sorry No Match Found!!";
+if5.close();
+}
+if(flag==1)
+{
+if5.close();
+of3.open("main",ios::binary|ios::ate);
+s.modify(g);
+of3.seekp((nrc-1)*sizeof(s),ios::beg);
+of3.write((char*)&s,sizeof(s));
+of3.close();
+}
+}
+void intro()
+{ clrscr();
+  cout<<setw(50)<<"\t      COMPUTER SCIENCE PROJECT \n";
+  cout<<setw(50)<<"\t\tSTUDENT INFORMATION MANAGMENT SYSTEM \n";
+  cout<<setw(50)<<"\t\t## BY M SAI ANAND & AKSHAT TRIVEDI ## \n";
+  cout<<setw(50)<<"\tClass & Sec.: XII-A \n";
+  getch();
+  }
