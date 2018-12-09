@@ -1,0 +1,71 @@
+void main()
+ {
+  char x;
+  char ans;
+  intro();
+  do
+  {clrscr();
+  cout<<"\n 1: New Entry\n";
+  cout<<"\n 2: Display Entry\n";
+  cout<<"\n 3: Search Entry\n";
+  cout<<"\n 4: Delete Entry\n";
+  cout<<"\n 5: Modify Entry\n";
+  cout<<"\n 6: Exit\n";
+  cout<<"\n\n Please Enter your Choice::";
+  x=getche();
+ switch(x)
+  {
+ case'1':
+{
+ entry();
+ cout<<"\n Do you wish to continue?:";
+ cin>>ans;
+ break;
+}
+
+  case '2':
+ {
+ showentry();
+ cout<<"\n Do you wish to continue?:";
+ cin>>ans;
+ break;
+ }
+
+  case '3':
+{
+ searchentry();
+ cout<<"\n Do you wish to continue?:";
+ cin>>ans;
+ break;
+}
+
+case '4':
+ {
+  delentry();
+  cout<<"\n Do you wish to continue?:";
+  cin>>ans;
+  break;
+ }
+
+case '5':
+  {
+modifyentry();
+cout<<"\n Do you wish to continue?:";
+cin>>ans;
+break;
+}
+case '6':
+{cout<<"\n Program is closing";
+exit(0);break;
+}  		// switch close
+default: cout<<"\a";
+}
+}
+while(x!='6');
+getch();
+
+}
+
+
+
+
