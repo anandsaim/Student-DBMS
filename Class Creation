@@ -1,0 +1,205 @@
+
+ class student
+{
+  int rollno;
+  char name[50];
+  float per;
+  char sex;
+  int age;
+  float marks[5];
+  char dob[20];
+  char standard[5];
+  char section;
+  char phonenumber[50];
+  char address[50];
+
+ public:
+  void getdata(int r);
+  void putdata();
+  int retroll();
+  void modify(int r);
+ }s;
+
+  void student::getdata(int r)
+ {
+  float sum;
+  float cal;
+  rollno=r;
+  cout<<"\nEnter the Name:";
+    gets(name);
+  cout<<"\nEnter English Marks:";
+    cin>>marks[0];
+  cout<<"\nEnter Maths Marks:";
+    cin>>marks[1];
+  cout<<"\nEnter Physics Marks:";
+    cin>>marks[2];
+  cout<<"\nEnter Chemistry Marks:";
+    cin>>marks[3];
+  cout<<"\nEnter Computer Science Marks:";
+    cin>>marks[4];
+  sum=marks[0]+marks[1]+marks[2]+marks[3]+marks[4];
+    per=(sum/500)*100;
+  cout<<"\nEnter Age:";
+    cin>>age;
+  cout<<"\nEnter Gender:";
+    cin>>sex;
+  cout<<"\nEnter DOB:";
+    gets(dob);
+  cout<<"\nEnter Standard:";
+    gets(standard);
+  cout<<"\nEnter Section:";
+    cin>>section;
+  cout<<"\nEnter Phonenumber:";
+    gets(phonenumber);
+  cout<<"\nEnter Address:";
+    gets(address);
+  }
+
+ void student::putdata()
+ {
+  cout<<"\nThe Roll Number entered was:"<<rollno;
+  cout<<"\nThe Name entered was:";
+    puts(name);
+  cout<<"\nThe English marks entered were:"<<marks[0];
+  cout<<"\nThe Maths marks entered were:"<<marks[1];
+  cout<<"\nThe Physics marks entered were:"<<marks[2];
+  cout<<"\nThe Chemistry marks entered were:"<<marks[3];
+  cout<<"\nThe Computer Science marks entered were:"<<marks[4];
+  cout<<"\nThe Percentage is:"<<per;
+  cout<<"\nThe Gender entered was:"<<sex;
+  cout<<"\nThe Age entered was:"<<age;
+  cout<<"\nThe DOB entered was:";
+    puts(dob);
+  cout<<"\nThe Standard entered was:";
+    puts(standard);
+  cout<<"\nThe Section entered was:"<<section;
+  cout<<"\nThe Phonenumber entered was:";
+    puts(phonenumber);
+  cout<<"\nThe Address entered was:";
+    puts(address);
+   cout<<endl;
+}
+
+
+int student::retroll()
+{
+  return rollno;
+}
+
+
+void student::modify(int r)
+{
+  rollno=r;
+  char aa,bb,cc,dd,ee,ff,gg,hh,ii,jj,kk,ll,mm,nn,name1[50],sex1,dob1[20],standard1[5],section1,phonenumber1[50],address1[50];
+  float per1,sum1;
+  int age1,marks1[5];
+  cout<<"\n Do you wish to modify the Name?(Y/N)";
+  cin>>aa;
+  if(aa=='y'||aa=='Y')
+  {cout<<"\n Enter new Name:";
+  gets(name1);
+  strcpy(name,name1);
+ }
+  cout<<"\n Do you wish to modify the English marks?(Y/N)";
+  cin>>jj;
+  if(jj=='y'||jj=='Y')
+  {
+   cout<<"\n Enter the new English marks:";
+   cin>>marks1[0];
+   marks[0]=marks1[0];
+  }
+    cout<<"\n Do you wish to modify the Maths marks?(Y/N)";
+    cin>>kk;
+    if(kk=='y'||kk=='Y')
+  {
+	  cout<<"\n Enter the new Maths marks:";
+	  cin>>marks1[1];
+	  marks[1]=marks1[1];
+  }
+    cout<<"\n Do you wish to modify the Physics marks?(Y/N)";
+    cin>>ll;
+    if(ll=='y'||ll=='Y')
+  {
+cout<<"\n Enter the new Physics marks:";
+  cin>>marks1[2];
+  marks[2]=marks1[2];
+  }
+  cout<<"\n Do you wish to modify the Chemistry marks?(Y/N)";
+  cin>>mm;
+  if(mm=='y'||mm=='Y')
+  {
+ cout<<"\n Enter the new Chemistry marks:";
+  cin>>marks1[3];
+  marks[3]=marks1[3];
+  }
+  cout<<"\n Do you wish to modify the Computer Science marks?(Y/N)";
+  cin>>nn;
+  if(nn=='y'||nn=='Y')
+  {
+  cout<<"\n Enter the new Computer Science marks:";
+  cin>>marks1[4];
+  marks[4]=marks1[4];
+  }
+  if(jj=='y'||jj=='Y'||kk=='y'||kk=='Y'||ll=='y'||ll=='Y'||mm=='y'||mm=='Y'||nn=='y'||nn=='Y')
+  {
+ sum1=marks1[0]+marks1[1]+marks1[2]+marks1[3]+marks1[4];
+ per1=(sum1/500)*100;
+ per=per1;
+ }
+  cout<<"\n Do you wish to modify the Gender?(Y/N)";
+  cin>>cc;
+  if(cc=='y'||cc=='Y')
+  {
+    cout<<"\n Enter The new Gender:";
+    cin>>sex1;
+    sex=sex1;
+  }
+    cout<<"\n Do you wish to modify the Age?(Y/N)";
+    cin>>dd;
+   if(dd=='y'||dd=='Y')
+  {
+    cout<<"\n Enter the new age:";
+    cin>>age1;
+    age=age1;
+  }
+  cout<<"\n Do you wish to modify the DOB?(Y/N)";
+  cin>>ee;
+  if(ee=='y'||ee=='Y')
+  {
+  cout<<"\n Enter the new DOB:";
+  gets(dob1);
+  strcpy(dob,dob1);
+  }
+  cout<<"\n Do you wish to modify the Standard?(Y/N)";
+  cin>>ff;
+  if(ff=='y'||ff=='Y')
+  {
+  cout<<"\n Enter the new standard:";
+  gets(standard1);
+  strcpy(standard,standard1);
+ }
+  cout<<"\n Do you wish to modify the Section?(Y/N)";
+  cin>>gg;
+  if(gg=='y'||gg=='Y')
+  {
+  cout<<"\n Enter the new Section:";
+  cin>>section1;
+  section=section1;
+  }
+  cout<<"\n Do you wish to modify the Phonenumber?(Y/N)";
+  cin>>hh;
+  if(hh=='y'||hh=='Y')
+  {
+  cout<<"\n Enter the new Phonenumber:";
+  gets(phonenumber1);
+  strcpy(phonenumber,phonenumber1);
+  }
+  cout<<"\n Do you wish to modify the Address?(Y/N)";
+  cin>>ii;
+  if(ii=='y'||ii=='Y')
+  {
+  cout<<"\n Enter the new Address:";
+  gets(address1);
+  strcpy(address,address1);
+  }
+}
